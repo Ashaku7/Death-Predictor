@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Predictor</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <h1 class="title">DEATH PREDICTOR</h1>
+    </header>
+    
+    <main class="container">
+        <section class="animation-zone">
+            <div class="loading-container" id="loadingContainer">
+                <div class="loading-text">Consulting the Reaper...</div>
+                <div class="loading-bar-container"><div class="loading-bar" id="loadingBar"></div></div>
+            </div>
+
+            <div class="image-container">
+                <img src="human.png" alt="Human" id="humanImage" class="character-image">
+                <img src="coffin.png" alt="Coffin" id="coffinImage" class="character-image">
+            </div>
+
+            <div class="result-display" id="resultDisplay">
+                <div class="time-left" id="timeLeft"></div>
+                <div id="deathMessage"></div>
+            </div>
+        </section>
+
+        <form class="input-form" onsubmit="revealFate(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="locality">Locality:</label>
+                <input type="text" id="locality" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Upload Photo:</label>
+                <input type="file" id="photo" accept="image/*">
+            </div>
+            <hr style="border-color: #500; margin-bottom: 20px;">
+            <div class="form-group">
+                <label for="age">Current Age:</label>
+                <input type="number" id="age" min="1" max="120" required>
+            </div>
+            <div class="form-group">
+                <label for="sleep">Sleep Hours/Night:</label>
+                <input type="number" id="sleep" min="0" max="24" step="0.5" required>
+            </div>
+            <div class="form-group">
+                <label for="exercise">Exercise Days/Week:</label>
+                <input type="number" id="exercise" min="0" max="7" required>
+            </div>
+            <div class="form-group">
+                <label for="favoriteFood">Favorite Food:</label>
+                <select id="favoriteFood" required>
+                    <option value="">Select...</option>
+                    <option value="vegan">Vegan / Plant-Based</option>
+                    <option value="salad">Fresh Salads</option>
+                    <option value="home-cooked">Home Cooked Meals</option>
+                    <option value="steak">Steak and Potatoes</option>
+                    <option value="fast-food">Fast Food</option>
+                    <option value="sugary-snacks">Sugary Snacks</option>
+                </select>
+            </div>
+            <button type="submit" class="reveal-btn">REVEAL FATE</button>
+        </form>
+    </main>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
