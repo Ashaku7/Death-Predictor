@@ -53,7 +53,7 @@ function showResult({ totalSeconds }, inputs) {
     const deathMessageEl = document.getElementById('deathMessage');
     
     if (totalSeconds < MINUTE) {
-        timeLeftEl.textContent = `${Math.floor(totalSeconds)} Seconds`;
+        timeLeftEl.textContent = `${Math.floor(totalSeconds)} Second`;
         deathMessageEl.textContent = `GOODBYE, ${inputs.name.toUpperCase()}`;
     } else if (totalSeconds < HOUR) {
         timeLeftEl.textContent = `${Math.floor(totalSeconds / MINUTE)} Minutes`;
