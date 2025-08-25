@@ -73,15 +73,27 @@ function showResult({ totalSeconds }, inputs) {
 
 function animateImages({ totalSeconds }) {
     const humanImg = document.getElementById('humanImage');
+    const coffinImg = document.getElementById('coffinImage');
     const containerWidth = humanImg.parentElement.offsetWidth;
-    const travelDistance = containerWidth * 0.8 - humanImg.width;
+    
+    const coffinPosition = containerWidth * 0.69; 
+    const humanWidth = humanImg.offsetWidth || 60; 
+    const travelDistance = coffinPosition - (humanWidth / 2); 
+
+    humanImg.style.zIndex = '10';
+    coffinImg.style.zIndex = '5';
 
     if (totalSeconds < 10 * MINUTE) {
+        humanImg.style.transition = 'transform 3s ease-out';
         humanImg.style.transform = `translateX(${travelDistance}px)`;
+        
         setTimeout(() => {
-            document.getElementById('coffinImage').classList.add('coffin-active');
+            coffinImg.classList.add('coffin-active');
+        }, 2000);
+        
+        setTimeout(() => {
             humanImg.style.transition = 'transform 1.5s ease-in, opacity 1.5s ease-in';
-            humanImg.style.transform += ' scale(0.1)';
+            humanImg.style.transform = `translateX(${travelDistance}px) scale(0.2)`;
             humanImg.style.opacity = '0';
         }, 3500);
     } 
@@ -89,7 +101,7 @@ function animateImages({ totalSeconds }) {
         humanImg.style.transform = `translateX(${travelDistance * 0.75}px)`;
     }
     else if (totalSeconds < 20 * YEAR) {
-        humanImg.style.transform = `translateX(${travelDistance * 0.4}px)`;
+        humanImg.style.transform = `translateX(${travelDistance * 0.5}px)`;
     }
     else {
         humanImg.style.transform = `translateX(-${containerWidth * 0.1}px)`;
